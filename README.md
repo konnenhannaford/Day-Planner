@@ -27,5 +27,5 @@ Repo is public and can be updated by all via https://github.com/konnenhannaford/
 Completing this has increased familiarity with the process of J-Query and its applications to a website.  It is very complex area that will require further investigation as it is essential to a large are of roles and tasks.  
 
 # Site Screenshot
-![Daily-Planner] (screencaptur.png)
+![Daily-Planner](screencaptur.png)
 
