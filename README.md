@@ -28,5 +28,5 @@ Completing this has increased familiarity with the process of J-Query and its ap
 
 # Site Screenshot
 ![Daily-Planner]
-(screencapture-file-Users-konnen-bootcamp-homework-fifth-Day-Planner-index-html-2021-09-24-00_03_04.png)
+(fifth/Day-Planner/screencapture-file-Users-konnen-bootcamp-homework-fifth-Day-Planner-index-html-2021-09-24-00_03_04.png)
 
