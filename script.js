@@ -36,5 +36,28 @@ function createTimeBasedClasses(timesArr,i,timeBlockTextarea)
     // future
     else timeblocktextbox.children(".description").addClass("future");
       }
+      
+let storageArray = []
     
+      function saveToLocalStorage() {
+
+        var textAreaValue = $(this).siblings("textarea").val();
+        var time= $(this).siblings("p").text();
+        var storageObj = {time,textAreaValue}
+        storageArray.push(storageObj)
+        // console.log(storageArray)
+        localStorage.setItem('storageArray', JSON.stringify(storageArray));
+        // localStorage.getItem("storageArray")
+    }
+    
+    
+    function showLocalStorageValues() {
+        let savedData = JSON.parse(localStorage.getItem("storageArray"))
+        if (savedData){
+            savedData.forEach(element => {
+                let targetTextArea = $(`#${element.time}`)
+                targetTextArea.children("textarea").val(element.textAreaValue)
+            });
+        }
+    }
     
