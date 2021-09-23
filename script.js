@@ -1,33 +1,30 @@
 $(document).ready(function(){
-
     $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
-timeblock()
+    timeblock()
 })
 
 function timeblock (){
-var times = ["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"]
-for (var i=0; i<times.length; i++) {
-
+    var times = ["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"]
+    for (var i=0; i < times.length; i++) {
 
     var nexttime = $("#example").clone();
     nexttime.attr("id", times[i]);
     nexttime.children(".hour").text(times[i]);
-    nexttime.appendto(".container");
+    nexttime.appendTo(".container");
     
-    var timeblocktextbox = $("#${times[i]}")
+    var timeblocktextbox = $(`#${times[i]}`)
     
-    createTimeBasedClasses(timesArr,i,timeBlockTextarea)
+    createTimeBasedClasses(timesArr,i,timeblocktextbox)
 
-    timeBlockTextarea.children(".saveBtn").on('click',saveToLocalStorage);
+    timeblocktextbox.children(".saveBtn").on('click',saveToLocalStorage);
 
 }
-    $("#sample").remove()
+    $("#example").remove()
     showLocalStorageValues()
-}
 
 
-function createTimeBasedClasses(timesArr,i,timeBlockTextarea) 
-{
+
+function createTimeBasedClasses(times,i,timeblocktextbox) {
 
     // past 
     if (moment().format ("hA") === times[i]) timeblocktextbox.children(".description").addclass("present");
@@ -39,23 +36,22 @@ function createTimeBasedClasses(timesArr,i,timeBlockTextarea)
       
 let storageArray = []
     
-      function saveToLocalStorage() {
+function saveToLocalStorage() {
 
-        var textAreaValue = $(this).siblings("textarea").val();
-        var time= $(this).siblings("p").text();
-        var storageObj = {time,textAreaValue}
+        let textAreaValue = $(this).siblings("textarea").val();
+        let time= $(this).siblings("p").text();
+        const storageObj = {time,textAreaValue}
         storageArray.push(storageObj)
-        // console.log(storageArray)
         localStorage.setItem('storageArray', JSON.stringify(storageArray));
-        // localStorage.getItem("storageArray")
+        localStorage.getItem("storageArray")
     }
     
     
     function showLocalStorageValues() {
-        let savedData = JSON.parse(localStorage.getItem("storageArray"))
+        var savedData = JSON.parse(localStorage.getItem("storageArray"))
         if (savedData){
             savedData.forEach(element => {
-                let targetTextArea = $(`#${element.time}`)
+                var targetTextArea = $(`#${element.time}`)
                 targetTextArea.children("textarea").val(element.textAreaValue)
             });
         }
