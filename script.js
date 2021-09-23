@@ -42,9 +42,7 @@ function saveToLocalStorage() {
     let time= $(this).siblings("p").text();
     const storageObj = {time,textAreaValue}
     storageArray.push(storageObj)
-    // console.log(storageArray)
     localStorage.setItem('storageArray', JSON.stringify(storageArray));
-    // localStorage.getItem("storageArray")
 }
 
 
